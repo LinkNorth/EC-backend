@@ -45,6 +45,11 @@ app.post('/movies', (req, res) => {
   res.status(201).json(movie);
 });
 
+app.delete('/movies', (req, res) => {
+  movies = [];
+  res.status(204).end();
+});
+
 app.delete('/movies/:id', (req, res) => {
   const id = parseInt(req.params.id);
   if (!id) {
