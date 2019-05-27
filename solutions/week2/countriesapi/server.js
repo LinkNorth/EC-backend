@@ -5,6 +5,16 @@ const app = express();
 const data = require('./countries.json');
 
 
+app.use(function(req, res, next) {
+  let start = Date.now();
+  res.once('finish', () => {
+    let end = Date.now() - start;
+    console.log(req.method, req.url, res.statusCode, end);
+  });
+  next();
+});
+
+
 app.get('/countries', (req, res) => {
   const qs = req.query;
   let page = parseInt(qs.page);
