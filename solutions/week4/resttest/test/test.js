@@ -115,6 +115,6 @@ describe('/movies', function() {
   });
 
   it('Returns 404 for non existing resource', function() {
-    return expectReq('GET', 404, undefined, 'Banana');
+    return expectReq('GET', 404, undefined, '-10');
   });
 });
